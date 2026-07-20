@@ -1,5 +1,6 @@
 package com.ashutosh.inventory.exception;
 
+import com.ashutosh.inventory.constants.MessageConstants;
 import com.ashutosh.inventory.dto.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -51,7 +52,7 @@ public class GlobalExceptionHandler {
         ApiResponse<Map<String, String>> response =
                 ApiResponse.<Map<String, String>>builder()
                         .success(false)
-                        .message("Validation Failed")
+                        .message(MessageConstants.VALIDATION_FAILED)
                         .data(errors)
                         .build();
 
@@ -63,7 +64,7 @@ public class GlobalExceptionHandler {
 
         ApiResponse<Object> response = ApiResponse.builder()
                 .success(false)
-                .message("Something went wrong. Please try again.")
+                .message(MessageConstants.INTERNAL_SERVER_ERROR)
                 .data(null)
                 .build();
 

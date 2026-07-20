@@ -1,4 +1,5 @@
 package com.ashutosh.inventory.service.impl;
+import com.ashutosh.inventory.constants.MessageConstants;
 import com.ashutosh.inventory.dto.CategoryRequest;
 import com.ashutosh.inventory.dto.CategoryResponse;
 import com.ashutosh.inventory.entity.Category;
@@ -27,7 +28,8 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryResponse createCategory(CategoryRequest request) {
 
         if (categoryRepository.existsByCategoryName(request.getCategoryName())) {
-            throw new DuplicateResourceException("Category already exists with name: " + request.getCategoryName());
+            throw new DuplicateResourceException(MessageConstants.CATEGORY_ALREADY_EXISTS
+                + request.getCategoryName());
         }
 
         Category category = categoryMapper.toEntity(request);
@@ -52,7 +54,7 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = categoryRepository.findById(categoryId)
             .orElseThrow(() ->
                     new ResourceNotFoundException(
-                            "Category not found with ID: " + categoryId));
+                            MessageConstants.CATEGORY_NOT_FOUND + categoryId));
 
         return categoryMapper.toResponse(category);
     }
@@ -64,7 +66,7 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = categoryRepository.findById(categoryId)
             .orElseThrow(() ->
                     new ResourceNotFoundException(
-                            "Category not found with ID: " + categoryId));
+                            MessageConstants.CATEGORY_NOT_FOUND + categoryId));
 
         category.setCategoryName(request.getCategoryName());
         category.setDescription(request.getDescription());
@@ -80,7 +82,7 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = categoryRepository.findById(categoryId)
             .orElseThrow(() ->
                     new ResourceNotFoundException(
-                            "Category not found with ID: " + categoryId));
+                            MessageConstants.CATEGORY_NOT_FOUND + categoryId));
 
         categoryRepository.delete(category);
     }
