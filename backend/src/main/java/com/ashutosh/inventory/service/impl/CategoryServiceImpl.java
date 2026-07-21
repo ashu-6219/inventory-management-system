@@ -1,7 +1,7 @@
 package com.ashutosh.inventory.service.impl;
 import com.ashutosh.inventory.constants.MessageConstants;
-import com.ashutosh.inventory.dto.CategoryRequest;
-import com.ashutosh.inventory.dto.CategoryResponse;
+import com.ashutosh.inventory.dto.category.CategoryRequest;
+import com.ashutosh.inventory.dto.category.CategoryResponse;
 import com.ashutosh.inventory.entity.Category;
 import com.ashutosh.inventory.exception.ResourceNotFoundException;
 import com.ashutosh.inventory.exception.DuplicateResourceException;

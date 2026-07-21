@@ -1,4 +1,4 @@
-package com.ashutosh.inventory.dto;
+package com.ashutosh.inventory.dto.category;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

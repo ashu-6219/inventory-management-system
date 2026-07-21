@@ -1,6 +1,6 @@
 package com.ashutosh.inventory.mapper;
-import com.ashutosh.inventory.dto.CategoryRequest;
-import com.ashutosh.inventory.dto.CategoryResponse;
+import com.ashutosh.inventory.dto.category.CategoryRequest;
+import com.ashutosh.inventory.dto.category.CategoryResponse;
 import com.ashutosh.inventory.entity.Category;
 import org.springframework.stereotype.Component;
 

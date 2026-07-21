@@ -1,8 +1,8 @@
 package com.ashutosh.inventory.service;
-import com.ashutosh.inventory.dto.CategoryRequest;
-import com.ashutosh.inventory.dto.CategoryResponse;
-
 import java.util.List;
+
+import com.ashutosh.inventory.dto.category.CategoryRequest;
+import com.ashutosh.inventory.dto.category.CategoryResponse;
 public interface CategoryService {
     CategoryResponse createCategory(CategoryRequest request);
 

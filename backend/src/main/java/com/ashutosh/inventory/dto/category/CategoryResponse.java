@@ -1,4 +1,4 @@
-package com.ashutosh.inventory.dto;
+package com.ashutosh.inventory.dto.category;
 import lombok.Builder;
 import lombok.Data;
 

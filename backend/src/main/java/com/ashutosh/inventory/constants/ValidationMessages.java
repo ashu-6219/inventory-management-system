@@ -20,4 +20,38 @@ public final class ValidationMessages {
 
     public static final String CATEGORY_DESCRIPTION_SIZE =
             "Description cannot exceed 255 characters.";
+
+    // Supplier Validation Messages
+    public static final String SUPPLIER_NAME_REQUIRED =
+        "Supplier name is required.";
+
+    public static final String SUPPLIER_NAME_SIZE =
+            "Supplier name must be between 3 and 150 characters.";
+
+    public static final String CONTACT_PERSON_SIZE =
+            "Contact person name cannot exceed 100 characters.";
+
+    public static final String PHONE_REQUIRED =
+            "Phone number is required.";
+
+    // public static final String INVALID_PHONE =
+    //         "Phone number must contain exactly 10 digits.";
+
+    // public static final String INVALID_EMAIL =
+    //         "Please enter a valid email address.";
+
+    public static final String GST_NUMBER_SIZE =
+            "GST number must be exactly 15 characters.";
+
+    public static final String INVALID_GST =
+            "Please enter a valid GST number.";
+
+    public static final String ADDRESS_SIZE =
+            "Address cannot exceed 300 characters.";
+
+    public static final String PAYMENT_MODE_REQUIRED =
+            "Payment mode is required.";
+
+    public static final String CREDIT_DAYS_INVALID =
+            "Credit days cannot be negative.";
 }

@@ -1,7 +1,7 @@
 package com.ashutosh.inventory.controller;
 import com.ashutosh.inventory.dto.ApiResponse;
-import com.ashutosh.inventory.dto.CategoryRequest;
-import com.ashutosh.inventory.dto.CategoryResponse;
+import com.ashutosh.inventory.dto.category.CategoryRequest;
+import com.ashutosh.inventory.dto.category.CategoryResponse;
 import com.ashutosh.inventory.service.CategoryService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

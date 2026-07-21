@@ -70,6 +70,19 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @ExceptionHandler(BusinessValidationException.class)
+    public ResponseEntity<ApiResponse<Object>> handleBusinessValidationException(
+            BusinessValidationException ex) {
+
+        ApiResponse<Object> response = ApiResponse.builder()
+                .success(false)
+                .message(ex.getMessage())
+                .data(null)
+                .build();
+
+        return ResponseEntity.badRequest().body(response);
+    }
 }
 
 
