@@ -1,8 +1,8 @@
 package com.ashutosh.inventory.service.impl;
 
 import com.ashutosh.inventory.constants.MessageConstants;
-import com.ashutosh.inventory.dto.SupplierRequest;
-import com.ashutosh.inventory.dto.SupplierResponse;
+import com.ashutosh.inventory.dto.supplier.SupplierRequest;
+import com.ashutosh.inventory.dto.supplier.SupplierResponse;
 import com.ashutosh.inventory.entity.Supplier;
 import com.ashutosh.inventory.enums.PaymentMode;
 import com.ashutosh.inventory.exception.DuplicateResourceException;
@@ -142,9 +142,9 @@ public class SupplierServiceImpl implements SupplierService {
 
         // return supplierMapper.toResponse(updatedSupplier);
 
-        validateDuplicateSupplierForUpdate(supplier, request);
+        // validateDuplicateSupplierForUpdate(supplier, request);
 
-        validatePaymentRules(request);
+        // validatePaymentRules(request);
 
         supplierMapper.updateEntity(supplier, request);
 

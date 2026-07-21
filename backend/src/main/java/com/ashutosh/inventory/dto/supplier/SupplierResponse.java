@@ -1,4 +1,4 @@
-package com.ashutosh.inventory.dto;
+package com.ashutosh.inventory.dto.supplier;
 
 import com.ashutosh.inventory.enums.PaymentMode;
 import lombok.AllArgsConstructor;

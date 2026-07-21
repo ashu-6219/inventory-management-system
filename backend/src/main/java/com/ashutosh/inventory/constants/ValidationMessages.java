@@ -2,56 +2,97 @@ package com.ashutosh.inventory.constants;
 
 public final class ValidationMessages {
 
-    private ValidationMessages(){
-        // Prevent instantiation
-    }
+        private ValidationMessages(){
+                // Prevent instantiation
+        }
 
-    // Common Validation Messages
-    public static final String FIELD_REQUIRED = "This field is required.";
-    public static final String INVALID_EMAIL = "Please enter a valid email address.";
-    public static final String INVALID_PHONE = "Please enter a valid phone number.";
-    public static final String INVALID_PRICE = "Price must be greater than or equal to zero.";
-    public static final String INVALID_QUANTITY = "Quantity must be greater than or equal to zero.";
+        // Common Validation Messages
+        public static final String FIELD_REQUIRED = "This field is required.";
+        public static final String INVALID_EMAIL = "Please enter a valid email address.";
+        public static final String INVALID_PHONE = "Please enter a valid phone number.";
+        public static final String INVALID_PRICE = "Price must be greater than or equal to zero.";
+        public static final String INVALID_QUANTITY = "Quantity must be greater than or equal to zero.";
 
-    // Category Validation Messages
-    public static final String CATEGORY_NAME_REQUIRED = "Category name is required.";
-    public static final String CATEGORY_NAME_SIZE =
-            "Category name must be between 3 and 100 characters.";
+        // Category Validation Messages
+        public static final String CATEGORY_NAME_REQUIRED = "Category name is required.";
+        public static final String CATEGORY_NAME_SIZE =
+                "Category name must be between 3 and 100 characters.";
 
-    public static final String CATEGORY_DESCRIPTION_SIZE =
-            "Description cannot exceed 255 characters.";
+        public static final String CATEGORY_DESCRIPTION_SIZE =
+                "Description cannot exceed 255 characters.";
 
-    // Supplier Validation Messages
-    public static final String SUPPLIER_NAME_REQUIRED =
-        "Supplier name is required.";
+        // Supplier Validation Messages
+        public static final String SUPPLIER_NAME_REQUIRED =
+                "Supplier name is required.";
 
-    public static final String SUPPLIER_NAME_SIZE =
-            "Supplier name must be between 3 and 150 characters.";
+        public static final String SUPPLIER_NAME_SIZE =
+                "Supplier name must be between 3 and 150 characters.";
 
-    public static final String CONTACT_PERSON_SIZE =
-            "Contact person name cannot exceed 100 characters.";
+        public static final String CONTACT_PERSON_SIZE =
+                "Contact person name cannot exceed 100 characters.";
 
-    public static final String PHONE_REQUIRED =
-            "Phone number is required.";
+        public static final String PHONE_REQUIRED =
+                "Phone number is required.";
 
-    // public static final String INVALID_PHONE =
-    //         "Phone number must contain exactly 10 digits.";
+        // public static final String INVALID_PHONE =
+        //         "Phone number must contain exactly 10 digits.";
 
-    // public static final String INVALID_EMAIL =
-    //         "Please enter a valid email address.";
+        // public static final String INVALID_EMAIL =
+        //         "Please enter a valid email address.";
 
-    public static final String GST_NUMBER_SIZE =
-            "GST number must be exactly 15 characters.";
+        public static final String GST_NUMBER_SIZE =
+                "GST number must be exactly 15 characters.";
 
-    public static final String INVALID_GST =
-            "Please enter a valid GST number.";
+        public static final String INVALID_GST =
+                "Please enter a valid GST number.";
 
-    public static final String ADDRESS_SIZE =
-            "Address cannot exceed 300 characters.";
+        public static final String ADDRESS_SIZE =
+                "Address cannot exceed 300 characters.";
 
-    public static final String PAYMENT_MODE_REQUIRED =
-            "Payment mode is required.";
+        public static final String PAYMENT_MODE_REQUIRED =
+                "Payment mode is required.";
 
-    public static final String CREDIT_DAYS_INVALID =
-            "Credit days cannot be negative.";
+        public static final String CREDIT_DAYS_INVALID =
+                "Credit days cannot be negative.";
+
+
+        // Product Validation Messages
+        public static final String PRODUCT_NAME_REQUIRED =
+                "Product name is required.";
+
+        public static final String PRODUCT_NAME_SIZE =
+                "Product name must be between 3 and 150 characters.";
+
+        public static final String SKU_REQUIRED =
+                "SKU is required.";
+
+        public static final String SKU_SIZE =
+                "SKU cannot exceed 50 characters.";
+
+        public static final String BARCODE_SIZE =
+                "Barcode cannot exceed 50 characters.";
+
+        public static final String CATEGORY_ID_REQUIRED =
+                "Category ID is required.";
+
+        public static final String SUPPLIER_ID_REQUIRED =
+                "Supplier ID is required.";
+
+        public static final String COST_PRICE_REQUIRED =
+                "Cost price is required.";
+
+        public static final String SELLING_PRICE_REQUIRED =
+                "Selling price is required.";
+
+        public static final String TAX_PERCENTAGE_INVALID =
+                "Tax percentage cannot be negative.";
+
+        public static final String UNIT_REQUIRED =
+                "Unit is required.";
+
+        public static final String REORDER_LEVEL_INVALID =
+                "Reorder level cannot be negative.";
+
+        public static final String DESCRIPTION_SIZE =
+                "Description cannot exceed 500 characters.";
 }

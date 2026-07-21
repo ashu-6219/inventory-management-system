@@ -1,9 +1,9 @@
 package com.ashutosh.inventory.service;
 
-import com.ashutosh.inventory.dto.SupplierRequest;
-import com.ashutosh.inventory.dto.SupplierResponse;
-
 import java.util.List;
+
+import com.ashutosh.inventory.dto.supplier.SupplierRequest;
+import com.ashutosh.inventory.dto.supplier.SupplierResponse;
 
 public interface SupplierService {
 

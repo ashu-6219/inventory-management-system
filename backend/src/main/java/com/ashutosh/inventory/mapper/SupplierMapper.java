@@ -1,7 +1,7 @@
 package com.ashutosh.inventory.mapper;
 
-import com.ashutosh.inventory.dto.SupplierRequest;
-import com.ashutosh.inventory.dto.SupplierResponse;
+import com.ashutosh.inventory.dto.supplier.SupplierRequest;
+import com.ashutosh.inventory.dto.supplier.SupplierResponse;
 import com.ashutosh.inventory.entity.Supplier;
 import org.springframework.stereotype.Component;
 
