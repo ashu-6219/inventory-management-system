@@ -46,12 +46,12 @@ public class SupplierServiceImpl implements SupplierService {
 
         if (supplierRepository.existsBySupplierName(request.getSupplierName())) {
             throw new DuplicateResourceException(
-                    "Supplier already exists with name: " + request.getSupplierName());
+                    MessageConstants.SUPPLIER_ALREADY_EXISTS + request.getSupplierName());
         }
 
         if (supplierRepository.existsByPhone(request.getPhone())) {
             throw new DuplicateResourceException(
-                    "Phone number already exists: " + request.getPhone());
+                    MessageConstants.PHONE_ALREADY_EXISTS + request.getPhone());
         }
 
         if (request.getEmail() != null
@@ -59,7 +59,7 @@ public class SupplierServiceImpl implements SupplierService {
                 && supplierRepository.existsByEmail(request.getEmail())) {
 
             throw new DuplicateResourceException(
-                    "Email already exists: " + request.getEmail());
+                    MessageConstants.EMAIL_ALREADY_EXISTS + request.getEmail());
         }
 
         if (request.getGstNumber() != null
@@ -67,7 +67,7 @@ public class SupplierServiceImpl implements SupplierService {
                 && supplierRepository.existsByGstNumber(request.getGstNumber())) {
 
             throw new DuplicateResourceException(
-                    "GST number already exists: " + request.getGstNumber());
+                    MessageConstants.GST_ALREADY_EXISTS + request.getGstNumber());
         }
 
     }
