@@ -130,4 +130,47 @@ public final class ValidationMessages {
 
         public static final String CUSTOMER_INVALID_GST =
                 "Please provide a valid GST number.";
+
+
+        // Purchase Validation Messages
+        // public static final String SUPPLIER_ID_REQUIRED =
+        //         "Supplier ID is required.";
+
+        public static final String INVOICE_NUMBER_REQUIRED =
+                "Invoice number is required.";
+
+        public static final String INVOICE_NUMBER_SIZE =
+                "Invoice number must not exceed 100 characters.";
+
+        public static final String PURCHASE_DATE_REQUIRED =
+                "Purchase date is required.";
+
+        public static final String PURCHASE_ITEMS_REQUIRED =
+                "At least one purchase item is required.";
+
+        public static final String REMARKS_SIZE =
+                "Remarks must not exceed 300 characters.";
+
+        
+        // Purchase Item Validation Messages
+        public static final String PRODUCT_ID_REQUIRED =
+                "Product ID is required.";
+
+        public static final String QUANTITY_REQUIRED =
+                "Quantity is required.";
+
+        // public static final String INVALID_QUANTITY =
+        //         "Quantity must be greater than zero.";
+
+        public static final String UNIT_PRICE_REQUIRED =
+                "Unit price is required.";
+
+        public static final String INVALID_UNIT_PRICE =
+                "Unit price must be greater than zero.";
+
+        public static final String TAX_PERCENTAGE_REQUIRED =
+                "Tax percentage is required.";
+
+        public static final String INVALID_TAX_PERCENTAGE =
+                "Tax percentage cannot be negative.";
 }

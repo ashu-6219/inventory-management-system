@@ -86,4 +86,35 @@ public final class MessageConstants {
 
         public static final String CUSTOMER_GST_ALREADY_EXISTS =
                 "GST number already exists: ";
+
+
+        // Purchase Success Messages
+        public static final String PURCHASE_CREATED =
+                "Purchase created successfully.";
+
+        public static final String PURCHASE_UPDATED =
+                "Purchase updated successfully.";
+
+        public static final String PURCHASE_DELETED =
+                "Purchase deleted successfully.";
+
+        public static final String PURCHASE_FETCHED =
+                "Purchase retrieved successfully.";
+
+        public static final String PURCHASES_FETCHED =
+                "Purchases retrieved successfully.";
+
+
+        // Purchase Error Messages
+        public static final String PURCHASE_NOT_FOUND =
+                "Purchase not found.";
+
+        public static final String PURCHASE_ALREADY_EXISTS =
+                "Purchase with the given invoice number already exists.";
+
+        public static final String INVALID_PURCHASE =
+                "Invalid purchase request.";
+
+        public static final String PURCHASE_ITEMS_EMPTY =
+                "Purchase must contain at least one item.";
 }
