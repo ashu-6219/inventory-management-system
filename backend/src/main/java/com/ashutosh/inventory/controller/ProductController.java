@@ -9,6 +9,9 @@ import com.ashutosh.inventory.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -56,17 +59,21 @@ public class ProductController {
                         .build());
     }
 
-    @Operation(summary = "Get All Products")
     @GetMapping
-    public ResponseEntity<ApiResponse<?>> getAllProducts() {
+    @Operation(summary = "Get All Products")
+    public ResponseEntity<ApiResponse<List<ProductResponse>>> getAllProducts() {
 
-        return ResponseEntity.ok(
-                ApiResponse.builder()
+        List<ProductResponse> products =
+                productService.getAllProducts();
+
+        ApiResponse<List<ProductResponse>> response =
+                ApiResponse.<List<ProductResponse>>builder()
                         .success(true)
                         .message(MessageConstants.PRODUCTS_FETCHED)
-                        .data(productService.getAllProducts())
-                        .build()
-        );
+                        .data(products)
+                        .build();
+
+        return ResponseEntity.ok(response);
     }
 
     @Operation(summary = "Get Product By ID")

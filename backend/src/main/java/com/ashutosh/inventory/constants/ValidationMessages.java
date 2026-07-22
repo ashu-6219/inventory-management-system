@@ -95,4 +95,39 @@ public final class ValidationMessages {
 
         public static final String DESCRIPTION_SIZE =
                 "Description cannot exceed 500 characters.";
+
+        
+        // Customer Validation Messages
+        public static final String CUSTOMER_NAME_REQUIRED =
+                "Customer name is required.";
+
+        public static final String CUSTOMER_NAME_SIZE =
+                "Customer name must be between 3 and 150 characters.";
+
+        public static final String CUSTOMER_PHONE_REQUIRED =
+                "Phone number is required.";
+
+        public static final String CUSTOMER_INVALID_PHONE =
+                "Phone number must be a valid 10-digit Indian mobile number.";
+
+        public static final String CUSTOMER_EMAIL_REQUIRED =
+                "Email is required.";
+
+        public static final String CUSTOMER_INVALID_EMAIL =
+                "Please provide a valid email address.";
+
+        public static final String CUSTOMER_ADDRESS_REQUIRED =
+                "Address is required.";
+
+        public static final String CUSTOMER_ADDRESS_SIZE =
+                "Address cannot exceed 300 characters.";
+
+        public static final String CUSTOMER_GST_REQUIRED =
+                "GST number is required.";
+
+        public static final String CUSTOMER_GST_SIZE =
+                "GST number must be exactly 15 characters.";
+
+        public static final String CUSTOMER_INVALID_GST =
+                "Please provide a valid GST number.";
 }

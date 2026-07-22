@@ -53,4 +53,37 @@ public final class MessageConstants {
         public static final String PRODUCT_BARCODE_ALREADY_EXISTS = "Barcode already exists: ";
         public static final String INVALID_PRODUCT_PRICING =
                 "Selling price cannot be less than cost price.";
+
+        
+        // Customer Success Messages
+        public static final String CUSTOMER_CREATED =
+                "Customer created successfully.";
+
+        public static final String CUSTOMERS_FETCHED =
+                "Customers fetched successfully.";
+
+        public static final String CUSTOMER_FETCHED =
+                "Customer fetched successfully.";
+
+        public static final String CUSTOMER_UPDATED =
+                "Customer updated successfully.";
+
+        public static final String CUSTOMER_DELETED =
+                "Customer deleted successfully.";
+        
+        // Customer Error Messages
+        public static final String CUSTOMER_NOT_FOUND =
+                "Customer not found with ID: ";
+
+        public static final String CUSTOMER_ALREADY_EXISTS =
+                "Customer already exists: ";
+
+        public static final String CUSTOMER_PHONE_ALREADY_EXISTS =
+                "Phone number already exists: ";
+
+        public static final String CUSTOMER_EMAIL_ALREADY_EXISTS =
+                "Email already exists: ";
+
+        public static final String CUSTOMER_GST_ALREADY_EXISTS =
+                "GST number already exists: ";
 }
