@@ -11,10 +11,15 @@ import com.ashutosh.inventory.exception.DuplicateResourceException;
 import com.ashutosh.inventory.exception.ResourceNotFoundException;
 import com.ashutosh.inventory.mapper.ProductMapper;
 import com.ashutosh.inventory.repository.CategoryRepository;
+import com.ashutosh.inventory.repository.InventoryRepository;
 import com.ashutosh.inventory.repository.ProductRepository;
 import com.ashutosh.inventory.repository.SupplierRepository;
 import com.ashutosh.inventory.service.ProductService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.ashutosh.inventory.entity.Inventory;
+import java.math.BigDecimal;
 
 // import java.math.BigDecimal;
 import java.util.List;
@@ -24,19 +29,23 @@ public class ProductServiceImpl implements ProductService{
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
     private final SupplierRepository supplierRepository;
+    private final InventoryRepository inventoryRepository;
     private final ProductMapper productMapper;
 
     public ProductServiceImpl(ProductRepository productRepository,
                               CategoryRepository categoryRepository,
                               SupplierRepository supplierRepository,
+                              InventoryRepository inventoryRepository,
                               ProductMapper productMapper) {
 
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
         this.supplierRepository = supplierRepository;
+        this.inventoryRepository = inventoryRepository;
         this.productMapper = productMapper;
     }
 
+    @Transactional
     @Override
     public ProductResponse createProduct(ProductRequest request) {
 
@@ -55,6 +64,15 @@ public class ProductServiceImpl implements ProductService{
         );
 
         Product savedProduct = productRepository.save(product);
+
+        Inventory inventory = Inventory.builder()
+                .product(savedProduct)
+                .quantity(BigDecimal.ZERO)
+                .reservedQuantity(BigDecimal.ZERO)
+                .damagedQuantity(BigDecimal.ZERO)
+                .build();
+        
+        inventoryRepository.save(inventory);
 
         return productMapper.toResponse(savedProduct);
     }

@@ -117,4 +117,10 @@ public final class MessageConstants {
 
         public static final String PURCHASE_ITEMS_EMPTY =
                 "Purchase must contain at least one item.";
+
+
+        // Inventory Message
+        public static final String INVENTORY_NOT_FOUND = "Inventory not found.";
+        public static final String INVENTORY_FETCHED_SUCCESSFULLY =
+                "Inventory retrieved successfully.";
 }

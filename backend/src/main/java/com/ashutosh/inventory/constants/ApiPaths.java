@@ -21,6 +21,9 @@ public final class ApiPaths {
     // Purchase
     public static final String PURCHASES = API_BASE + "/purchases";
 
+    // Inventory
+    public static final String INVENTORY = API_BASE + "/inventory";
+
     // Sale
     public static final String SALES = API_BASE + "/sales";
 }
