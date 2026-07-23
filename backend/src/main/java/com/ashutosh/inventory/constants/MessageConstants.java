@@ -123,4 +123,16 @@ public final class MessageConstants {
         public static final String INVENTORY_NOT_FOUND = "Inventory not found.";
         public static final String INVENTORY_FETCHED_SUCCESSFULLY =
                 "Inventory retrieved successfully.";
+
+        // Stock Transaction Messages
+        public static final String STOCK_TRANSACTION_NOT_FOUND =
+                "Stock Transaction not found.";
+
+        public static final String STOCK_TRANSACTION_FETCHED_SUCCESSFULLY =
+                "Stock Transaction fetched successfully.";
+
+        public static final String STOCK_TRANSACTIONS_FETCHED_SUCCESSFULLY =
+                "Stock Transactions fetched successfully.";
+        
+        public static final String PURCHASE_ENTRY = "Purchase Entry";
 }

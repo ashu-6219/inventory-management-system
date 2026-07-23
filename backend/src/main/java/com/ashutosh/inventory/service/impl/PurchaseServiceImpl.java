@@ -17,11 +17,16 @@ import com.ashutosh.inventory.entity.Supplier;
 import com.ashutosh.inventory.exception.DuplicateResourceException;
 import com.ashutosh.inventory.exception.ResourceNotFoundException;
 import com.ashutosh.inventory.mapper.PurchaseMapper;
+import com.ashutosh.inventory.repository.InventoryRepository;
 import com.ashutosh.inventory.repository.ProductRepository;
 // import com.ashutosh.inventory.repository.PurchaseItemRepository;
 import com.ashutosh.inventory.repository.PurchaseRepository;
+import com.ashutosh.inventory.repository.StockTransactionRepository;
 import com.ashutosh.inventory.repository.SupplierRepository;
 import com.ashutosh.inventory.service.PurchaseService;
+import com.ashutosh.inventory.entity.Inventory;
+import com.ashutosh.inventory.entity.StockTransaction;
+import com.ashutosh.inventory.enums.TransactionType;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,6 +39,8 @@ public class PurchaseServiceImpl implements PurchaseService {
     // private final PurchaseItemRepository purchaseItemRepository;
     private final SupplierRepository supplierRepository;
     private final ProductRepository productRepository;
+    private final InventoryRepository inventoryRepository;
+    private final StockTransactionRepository stockTransactionRepository;
 
 
     @Override
@@ -106,6 +113,17 @@ public class PurchaseServiceImpl implements PurchaseService {
         * Update Inventory
         * Create Stock Transactions
         */
+       for (PurchaseItem item : savedPurchase.getPurchaseItems()) {
+
+                updateInventory(
+                        item.getProduct(),
+                        item.getQuantity());
+
+                createStockTransaction(
+                        item.getProduct(),
+                        item.getQuantity(),
+                        savedPurchase.getPurchaseId());
+        }
 
         return PurchaseMapper.toResponse(savedPurchase);
     }
@@ -285,6 +303,43 @@ public class PurchaseServiceImpl implements PurchaseService {
         return subtotal
                 .add(tax)
                 .subtract(discount);
+    }
+
+    private void createStockTransaction(Product product,
+                                    BigDecimal quantity,
+                                    Long purchaseId) {
+
+        StockTransaction stockTransaction =
+                StockTransaction.builder()
+                        .product(product)
+                        .transactionType(TransactionType.PURCHASE)
+                        .quantity(quantity)
+                        .referenceId(purchaseId)
+                        .remarks(MessageConstants.PURCHASE_ENTRY)
+                        .build();
+
+        stockTransactionRepository.save(stockTransaction);
+    }
+
+    private Inventory findInventoryByProductId(Long productId) {
+
+        return inventoryRepository
+                .findByProductProductId(productId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException(
+                                MessageConstants.INVENTORY_NOT_FOUND));
+    }
+
+    private void updateInventory(Product product,
+                             BigDecimal quantity) {
+
+        Inventory inventory =
+                findInventoryByProductId(product.getProductId());
+
+        inventory.setQuantity(
+                inventory.getQuantity().add(quantity));
+
+        inventoryRepository.save(inventory);
     }
 
 
