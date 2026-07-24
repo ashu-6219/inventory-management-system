@@ -29,4 +29,7 @@ public final class ApiPaths {
 
     // Sale
     public static final String SALE = API_BASE + "/sales";
+
+    // Role
+    public static final String ROLE = API_BASE + "/roles";
 }

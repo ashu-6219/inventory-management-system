@@ -96,6 +96,22 @@ public class GlobalExceptionHandler {
                                         .build()
                         );
         }
+
+
+        @ExceptionHandler(ResourceAlreadyExistsException.class)
+        public ResponseEntity<ApiResponse<Void>>
+        handleResourceAlreadyExistsException(
+                ResourceAlreadyExistsException ex) {
+
+                ApiResponse<Void> response = ApiResponse.<Void>builder()
+                        .success(false)
+                        .message(ex.getMessage())
+                        .build();
+
+                return ResponseEntity
+                        .status(HttpStatus.CONFLICT)
+                        .body(response);
+        }
 }
 
 

@@ -180,4 +180,15 @@ public final class ValidationMessages {
         public static final String SALE_DATE_REQUIRED = "Sale date is required.";
 
         public static final String SALE_ITEMS_REQUIRED = "At least one sale item is required.";
+
+
+        // Role Validation Messages
+        public static final String ROLE_NAME_REQUIRED =
+                "Role name is required.";
+
+        public static final String ROLE_NAME_SIZE =
+                "Role name cannot exceed 50 characters.";
+
+        public static final String ROLE_DESCRIPTION_SIZE =
+                "Description cannot exceed 200 characters.";
 }

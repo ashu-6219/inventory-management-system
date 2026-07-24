@@ -163,4 +163,12 @@ public final class MessageConstants {
 
         public static final String INSUFFICIENT_STOCK =
                 "Insufficient stock available for product: ";
+
+
+        // Role Messages
+        public static final String ROLE_CREATED = "Role created successfully.";
+        public static final String ROLE_UPDATED = "Role updated successfully.";
+        public static final String ROLE_DELETED = "Role deleted successfully.";
+        public static final String ROLE_RETRIEVED = "Role retrieved successfully.";
+        public static final String ROLES_RETRIEVED = "Roles retrieved successfully.";
 }
