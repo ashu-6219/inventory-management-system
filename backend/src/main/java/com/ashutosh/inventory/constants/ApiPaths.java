@@ -28,5 +28,5 @@ public final class ApiPaths {
     public static final String STOCK_TRANSACTION = API_BASE + "/stock-transactions";
 
     // Sale
-    public static final String SALES = API_BASE + "/sales";
+    public static final String SALE = API_BASE + "/sales";
 }

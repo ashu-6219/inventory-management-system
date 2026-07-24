@@ -13,76 +13,89 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ApiResponse<Object>> handleResourceNotFoundException(ResourceNotFoundException ex) {
+        @ExceptionHandler(ResourceNotFoundException.class)
+        public ResponseEntity<ApiResponse<Object>> handleResourceNotFoundException(ResourceNotFoundException ex) {
 
-        ApiResponse<Object> response = ApiResponse.builder()
-                .success(false)
-                .message(ex.getMessage())
-                .data(null)
-                .build();
-
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-    }
-
-    @ExceptionHandler(DuplicateResourceException.class)
-    public ResponseEntity<ApiResponse<Object>> handleDuplicateResourceException(
-            DuplicateResourceException ex) {
-
-        ApiResponse<Object> response = ApiResponse.builder()
-                .success(false)
-                .message(ex.getMessage())
-                .data(null)
-                .build();
-
-        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
-    }
-
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ApiResponse<Map<String, String>>> handleValidationExceptions(
-            MethodArgumentNotValidException ex) {
-
-        Map<String, String> errors = new HashMap<>();
-
-        ex.getBindingResult()
-                .getFieldErrors()
-                .forEach(error ->
-                        errors.put(error.getField(), error.getDefaultMessage()));
-
-        ApiResponse<Map<String, String>> response =
-                ApiResponse.<Map<String, String>>builder()
+                ApiResponse<Object> response = ApiResponse.builder()
                         .success(false)
-                        .message(MessageConstants.VALIDATION_FAILED)
-                        .data(errors)
+                        .message(ex.getMessage())
+                        .data(null)
                         .build();
 
-        return ResponseEntity.badRequest().body(response);
-    }
+                return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiResponse<Object>> handleGenericException(Exception ex) {
+        @ExceptionHandler(DuplicateResourceException.class)
+        public ResponseEntity<ApiResponse<Object>> handleDuplicateResourceException(
+                DuplicateResourceException ex) {
 
-        ApiResponse<Object> response = ApiResponse.builder()
-                .success(false)
-                .message(MessageConstants.INTERNAL_SERVER_ERROR)
-                .data(null)
-                .build();
+                ApiResponse<Object> response = ApiResponse.builder()
+                        .success(false)
+                        .message(ex.getMessage())
+                        .data(null)
+                        .build();
 
-        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+                return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+        }
 
-    @ExceptionHandler(BusinessValidationException.class)
-    public ResponseEntity<ApiResponse<Object>> handleBusinessValidationException(
-            BusinessValidationException ex) {
+        @ExceptionHandler(MethodArgumentNotValidException.class)
+        public ResponseEntity<ApiResponse<Map<String, String>>> handleValidationExceptions(
+                MethodArgumentNotValidException ex) {
 
-        ApiResponse<Object> response = ApiResponse.builder()
-                .success(false)
-                .message(ex.getMessage())
-                .data(null)
-                .build();
+                Map<String, String> errors = new HashMap<>();
 
-        return ResponseEntity.badRequest().body(response);
-    }
+                ex.getBindingResult()
+                        .getFieldErrors()
+                        .forEach(error ->
+                                errors.put(error.getField(), error.getDefaultMessage()));
+
+                ApiResponse<Map<String, String>> response =
+                        ApiResponse.<Map<String, String>>builder()
+                                .success(false)
+                                .message(MessageConstants.VALIDATION_FAILED)
+                                .data(errors)
+                                .build();
+
+                return ResponseEntity.badRequest().body(response);
+        }
+
+        @ExceptionHandler(Exception.class)
+        public ResponseEntity<ApiResponse<Object>> handleGenericException(Exception ex) {
+
+                ApiResponse<Object> response = ApiResponse.builder()
+                        .success(false)
+                        .message(MessageConstants.INTERNAL_SERVER_ERROR)
+                        .data(null)
+                        .build();
+
+                return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        @ExceptionHandler(BusinessValidationException.class)
+        public ResponseEntity<ApiResponse<Object>> handleBusinessValidationException(
+                BusinessValidationException ex) {
+
+                ApiResponse<Object> response = ApiResponse.builder()
+                        .success(false)
+                        .message(ex.getMessage())
+                        .data(null)
+                        .build();
+
+                return ResponseEntity.badRequest().body(response);
+        }
+
+        @ExceptionHandler(InsufficientStockException.class)
+        public ResponseEntity<ApiResponse<Object>> handleInsufficientStock(
+                InsufficientStockException ex) {
+
+                return ResponseEntity.badRequest()
+                        .body(
+                                ApiResponse.builder()
+                                        .success(false)
+                                        .message(ex.getMessage())
+                                        .build()
+                        );
+        }
 }
 
 

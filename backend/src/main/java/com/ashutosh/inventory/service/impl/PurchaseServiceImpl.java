@@ -109,7 +109,6 @@ public class PurchaseServiceImpl implements PurchaseService {
         Purchase savedPurchase = purchaseRepository.save(purchase);
 
         /*
-        * TODO
         * Update Inventory
         * Create Stock Transactions
         */
@@ -148,20 +147,27 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
 
     @Override
+    @Transactional
     public void deletePurchase(Long purchaseId) {
 
         Purchase purchase = findPurchaseById(purchaseId);
 
-        purchaseRepository.delete(purchase);
+        /*
+        * Reverse Inventory
+        */
+        reverseInventory(purchase);
 
         /*
-        * TODO
-        * Reverse Inventory
-        * Reverse Stock Transactions
+        * Delete Stock Transactions
         */
+        deleteStockTransactions(purchase.getPurchaseId());
+
+        purchaseRepository.delete(purchase);
+
     }
 
     @Override
+    @Transactional
     public PurchaseResponse updatePurchase(Long purchaseId,
                                         PurchaseRequest request) {
 
@@ -170,6 +176,10 @@ public class PurchaseServiceImpl implements PurchaseService {
                 request.getInvoiceNumber());
 
         Purchase purchase = findPurchaseById(purchaseId);
+        
+        reverseInventory(purchase);
+
+        deleteStockTransactions(purchase.getPurchaseId());
 
         Supplier supplier = findSupplier(request.getSupplierId());
 
@@ -180,6 +190,8 @@ public class PurchaseServiceImpl implements PurchaseService {
 
         BigDecimal subtotal = BigDecimal.ZERO;
         BigDecimal taxAmount = BigDecimal.ZERO;
+
+        // List<PurchaseItem> purchaseItems = new ArrayList<>();
 
         for (PurchaseItemRequest itemRequest : request.getItems()) {
 
@@ -206,6 +218,7 @@ public class PurchaseServiceImpl implements PurchaseService {
             purchase.getPurchaseItems().add(purchaseItem);
         }
 
+        // purchase.setPurchaseItems(purchaseItems);
         purchase.setSubtotal(subtotal);
         purchase.setTaxAmount(taxAmount);
 
@@ -224,10 +237,20 @@ public class PurchaseServiceImpl implements PurchaseService {
         Purchase updatedPurchase = purchaseRepository.save(purchase);
 
         /*
-        * TODO
-        * Update Inventory Difference
-        * Update Stock Transactions
+        * Apply Inventory
+        * Create Stock Transactions
         */
+        for (PurchaseItem item : updatedPurchase.getPurchaseItems()) {
+
+                updateInventory(
+                        item.getProduct(),
+                        item.getQuantity());
+
+                createStockTransaction(
+                        item.getProduct(),
+                        item.getQuantity(),
+                        updatedPurchase.getPurchaseId());
+        }
 
         return PurchaseMapper.toResponse(updatedPurchase);
     }
@@ -342,5 +365,33 @@ public class PurchaseServiceImpl implements PurchaseService {
         inventoryRepository.save(inventory);
     }
 
+
+    private void reverseInventory(Purchase purchase) {
+
+        for (PurchaseItem purchaseItem  : purchase.getPurchaseItems()) {
+
+                Inventory inventory = findInventoryByProductId(
+                        purchaseItem.getProduct().getProductId());
+                
+                BigDecimal updatedQuantity = inventory.getQuantity()
+                        .subtract(purchaseItem.getQuantity());
+                
+                if (updatedQuantity.compareTo(BigDecimal.ZERO) < 0) {
+                        throw new IllegalStateException(
+                                "Inventory cannot become negative while reversing purchase.");
+                }
+                inventory.setQuantity(updatedQuantity);
+
+                inventoryRepository.save(inventory);
+        }
+    }
+
+    private void deleteStockTransactions(Long purchaseId) {
+
+        stockTransactionRepository.deleteByTransactionTypeAndReferenceId(
+                TransactionType.PURCHASE,
+                purchaseId
+        );
+    }
 
 }

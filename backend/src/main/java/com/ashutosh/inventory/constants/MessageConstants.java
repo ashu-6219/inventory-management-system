@@ -135,4 +135,32 @@ public final class MessageConstants {
                 "Stock Transactions fetched successfully.";
         
         public static final String PURCHASE_ENTRY = "Purchase Entry";
+
+
+        // Sale Messages
+        public static final String SALE_NOT_FOUND = "Sale not found.";
+
+        public static final String SALE_ALREADY_EXISTS =
+                "Sale with the given invoice number already exists.";
+
+        public static final String SALE_CREATED_SUCCESSFULLY =
+                "Sale created successfully.";
+
+        public static final String SALE_UPDATED_SUCCESSFULLY =
+                "Sale updated successfully.";
+
+        public static final String SALE_DELETED_SUCCESSFULLY =
+                "Sale deleted successfully.";
+
+        public static final String SALE_FETCHED_SUCCESSFULLY =
+                "Sale fetched successfully.";
+
+        public static final String SALES_FETCHED_SUCCESSFULLY =
+                "Sales fetched successfully.";
+
+        public static final String SALE_ENTRY =
+                "Sale Entry";
+
+        public static final String INSUFFICIENT_STOCK =
+                "Insufficient stock available for product: ";
 }

@@ -173,4 +173,11 @@ public final class ValidationMessages {
 
         public static final String INVALID_TAX_PERCENTAGE =
                 "Tax percentage cannot be negative.";
+
+        // Sale Validation Messages
+        public static final String CUSTOMER_ID_REQUIRED = "Customer ID is required.";
+
+        public static final String SALE_DATE_REQUIRED = "Sale date is required.";
+
+        public static final String SALE_ITEMS_REQUIRED = "At least one sale item is required.";
 }
