@@ -171,4 +171,26 @@ public final class MessageConstants {
         public static final String ROLE_DELETED = "Role deleted successfully.";
         public static final String ROLE_RETRIEVED = "Role retrieved successfully.";
         public static final String ROLES_RETRIEVED = "Roles retrieved successfully.";
+        public static final String ROLE_NOT_FOUND =
+                "Role not found with ID: ";
+
+        public static final String ROLE_ALREADY_EXISTS =
+                "Role already exists with name ";
+
+        //User Messages
+        public static final String USER_NOT_FOUND =
+                "User not found with ID: ";
+
+        public static final String USERNAME_ALREADY_EXISTS =
+                "Username already exists: ";
+
+        // public static final String EMAIL_ALREADY_EXISTS =
+        //         "Email already exists: ";
+
+        // User
+        public static final String USER_CREATED = "User created successfully.";
+        public static final String USERS_FETCHED = "Users retrieved successfully.";
+        public static final String USER_FETCHED = "User retrieved successfully.";
+        public static final String USER_UPDATED = "User updated successfully.";
+        public static final String USER_DELETED = "User deleted successfully.";
 }

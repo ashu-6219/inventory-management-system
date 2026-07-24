@@ -32,6 +32,7 @@ public class Role {
     @Column(name = "updated_at", insertable = false, updatable = false)
     private LocalDateTime updatedAt;
 
-    // @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)   
+    // @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
+    // @Builder.Default
     // private List<UserRole> userRoles = new ArrayList<>();
 }

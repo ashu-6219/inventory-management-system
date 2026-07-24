@@ -32,4 +32,7 @@ public final class ApiPaths {
 
     // Role
     public static final String ROLE = API_BASE + "/roles";
+
+    // User
+    public static final String USER = API_BASE + "/users";
 }

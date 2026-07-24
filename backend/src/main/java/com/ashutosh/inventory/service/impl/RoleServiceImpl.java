@@ -1,5 +1,6 @@
 package com.ashutosh.inventory.service.impl;
 
+import com.ashutosh.inventory.constants.MessageConstants;
 import com.ashutosh.inventory.dto.role.RoleRequest;
 import com.ashutosh.inventory.dto.role.RoleResponse;
 import com.ashutosh.inventory.entity.Role;
@@ -25,7 +26,7 @@ public class RoleServiceImpl implements RoleService {
 
         if (roleRepository.existsByRoleName(request.getRoleName())) {
             throw new ResourceAlreadyExistsException(
-                    "Role already exists with name: "
+                    MessageConstants.ROLE_ALREADY_EXISTS
                             + request.getRoleName());
         }
 
@@ -63,7 +64,7 @@ public class RoleServiceImpl implements RoleService {
                 && roleRepository.existsByRoleName(request.getRoleName())) {
 
             throw new ResourceAlreadyExistsException(
-                    "Role already exists with name: "
+                    MessageConstants.ROLE_ALREADY_EXISTS
                             + request.getRoleName());
         }
 
@@ -88,7 +89,7 @@ public class RoleServiceImpl implements RoleService {
         return roleRepository.findById(roleId)
                 .orElseThrow(() ->
                         new ResourceNotFoundException(
-                                "Role not found with ID: "
+                                MessageConstants.ROLE_NOT_FOUND
                                         + roleId));
     }
 }

@@ -191,4 +191,33 @@ public final class ValidationMessages {
 
         public static final String ROLE_DESCRIPTION_SIZE =
                 "Description cannot exceed 200 characters.";
+
+
+        // User
+        public static final String USER_FULL_NAME_REQUIRED =
+                "Full name is required.";
+
+        public static final String USER_FULL_NAME_SIZE =
+                "Full name cannot exceed 150 characters.";
+
+        public static final String USERNAME_REQUIRED =
+                "Username is required.";
+
+        public static final String USERNAME_SIZE =
+                "Username cannot exceed 50 characters.";
+
+        public static final String EMAIL_INVALID =
+                "Please provide a valid email address.";
+
+        public static final String EMAIL_SIZE =
+                "Email cannot exceed 150 characters.";
+
+        public static final String PASSWORD_REQUIRED =
+                "Password is required.";
+
+        public static final String PASSWORD_SIZE =
+                "Password cannot exceed 255 characters.";
+
+        public static final String PHONE_SIZE =
+                "Phone number cannot exceed 20 characters.";
 }
